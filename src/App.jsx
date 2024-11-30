@@ -1,22 +1,32 @@
 import { useState } from "react";
-import axios from "axios"; // axios追加
+import axios from "axios";
 import Title from "./components/Title";
 import Form from "./components/Form";
+import Results from "./components/Results";
 import "./App.css";
 
 function App() {
-  const [word, setWord] = useState("")
+  const [word, setWord] = useState("");
+  const [photo, setPhoto] = useState([]); // ← 追加
 
-  // Unsplashからデータを受け取る関数
-  const getPhotoData = () => {
-    axios.get(
-      "https://api.unsplash.com/search/photos?query=cat&client_id=3upG4lhXeUhpg5cynzAA2iAeBfhqe_OA-1Njox0krQQ")
-        .then((res) => console.log(res));
+  const getPhotoData = (e) => {
+    e.preventDefault();
+    axios
+      .get(
+        `https://api.unsplash.com/search/photos?query=${word}&client_id=${
+          import.meta.env.VITE_UNSPLASH_API_KEY
+        }`
+      )
+      .then((res) => {
+        setPhoto(res.data.results); // ← 追加
+      });
   };
+
   return (
     <div className="App">
       <Title />
-      <Form setWord={setWord} />
+      <Form setWord={setWord} getPhotoData={getPhotoData} />
+      <Results photo={photo} /> 
     </div>
   );
 }
