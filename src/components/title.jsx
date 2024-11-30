@@ -1,9 +1,9 @@
 const Title = () => {
   return (
-    <header>
-      <h1>Image Search App</h1>
-      <p>
-        By <a href="https://unsplash.com/">Unsplash</a>
+    <header className="title-header">
+      <h1 className="title-heading">Image Search App</h1>
+      <p className="title-description">
+        Images Courtesy of <a href="https://unsplash.com/">Unsplash</a>
       </p>
     </header>
   );

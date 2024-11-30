@@ -13,9 +13,7 @@ function App() {
     e.preventDefault();
     axios
       .get(
-        `https://api.unsplash.com/search/photos?query=${word}&client_id=${
-          import.meta.env.VITE_UNSPLASH_API_KEY
-        }`
+        `https://api.unsplash.com/search/photos?query=${word}&client_id=${import.meta.env.VITE_UNSPLASH_API_KEY}`
       )
       .then((res) => {
         setPhoto(res.data.results); // ← 追加
@@ -26,7 +24,7 @@ function App() {
     <div className="App">
       <Title />
       <Form setWord={setWord} getPhotoData={getPhotoData} />
-      <Results photo={photo} /> 
+      <Results photo={photo} />
     </div>
   );
 }
