@@ -1,4 +1,3 @@
-import "../style.css";
 const Form = ({ setWord, getPhotoData }) => {
   return (
     <form>
