@@ -7,5 +7,5 @@ export default defineConfig({
   build: {
     cssCodeSplit: true, // デフォルトは true
   },
-  base: "/unsp/",
+  base: "/unsp/assets/",
 });
