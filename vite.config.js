@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    cssCodeSplit: true, // CSS ファイルを分割する設定
+    cssCodeSplit: true, // デフォルトは true
   },
   base: "/unsp/",
 });

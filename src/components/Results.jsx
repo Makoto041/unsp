@@ -1,3 +1,4 @@
+import "../style.css";
 /* eslint-disable react/prop-types */
 const Results = ({ photo}) => {
   return (

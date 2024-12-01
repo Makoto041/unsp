@@ -3,7 +3,7 @@ import axios from "axios";
 import Title from "./components/Title";
 import Form from "./components/Form";
 import Results from "./components/Results";
-import "./App.css";
+import "./style.css";
 
 function App() {
   const [word, setWord] = useState("");
