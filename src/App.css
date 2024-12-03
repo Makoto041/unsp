@@ -249,7 +249,8 @@ img {
     gap: 15px; /* 上下の間隔を広くする */
   }
   .search-button {
-    padding: 20px 40px;
+    font-size: 20px;
+    padding: 15px 35px;
     border-radius: 30px;
   }
   .photo-list {
@@ -262,7 +263,7 @@ img {
   }
 
   .close {
-    top: 10px;
+    top: 30px;
     right: 20px;
     font-size: 1.5rem; /* モバイルでは閉じるボタンを少し小さく */
   }
