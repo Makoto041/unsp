@@ -9,7 +9,7 @@ img {
 }
 /* 画像リストのレイアウト */
 .photo-list {
-  column-count: 3; 
+  column-count: 3;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* カラムの幅を調整 */
   gap: 10px; /* カード間の間隔を縮小 */
   padding: 20px;
@@ -27,7 +27,9 @@ img {
   margin-bottom: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(142, 116, 116, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 /* カードのホバー効果 */
@@ -61,7 +63,7 @@ img {
 
 .photo-card:hover .photo-overlay {
   transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);/* ホバー時にオーバーレイを表示 */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* ホバー時にオーバーレイを表示 */
 }
 
 .photo-card img {
@@ -69,7 +71,6 @@ img {
   object-fit: cover; /* 画像を枠内に綺麗に収める */
   border-radius: 10px;
 }
-
 
 /* オーバーレイ内のテキスト */
 .photo-title {
@@ -103,7 +104,7 @@ img {
   background-color: rgba(0, 0, 0, 0.5); /* 背景色に黒の半透明を追加 */
   background-image: rgba(255, 255, 255, 0.1); /* 編み掛けパターンを追加 */
   /* background-size: 40px 40px; /* 編み掛けパターンのサイズを指定 */
-  z-index: 0; 背景として配置 */
+  z-index: 0;
 }
 
 .title-header h1,
@@ -178,11 +179,18 @@ img {
     font-size: 1rem;
   }
   .search-input {
-    width: 100%; /* スマホ画面では入力フィールドを全幅に */
+    width: 90%; /* スマホ画面では入力フィールドを全幅に */
+    padding: 15px 15px;
   }
-
   .search-form {
     flex-direction: column; /* 子要素を縦並びにする */
     gap: 15px; /* 上下の間隔を広くする */
+  }
+  .search-button {
+    padding: 20px 40px;
+    border-radius: 30px;
+  }
+  .photo-list {
+    column-count: 2;
   }
 }
