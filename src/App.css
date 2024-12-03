@@ -7,11 +7,75 @@ img {
 .App {
   margin: 0;
 }
+/* 画像リストのレイアウト */
 .photo-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  gap: 1rem;
-  margin: 1rem;
+  column-count: 3; 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* カラムの幅を調整 */
+  gap: 10px; /* カード間の間隔を縮小 */
+  padding: 20px;
+  margin: 0 auto;
+  justify-content: center; /* 全体を中央揃え */
+}
+
+/* カード全体のスタイル */
+.photo-card {
+  break-inside: avoid;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: fit-content;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(142, 116, 116, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* カードのホバー効果 */
+.photo-card:hover {
+  transform: translateY(-5px); /* ホバーで少し持ち上がる */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 画像スタイル */
+.photo-image {
+  width: 100%;
+  height: auto; /* 画像の比率に基づいて高さを自動調整 */
+  display: block;
+  border-radius: 10px;
+}
+
+/* オーバーレイ効果 */
+.photo-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6); /* 半透明の黒背景 */
+  color: white;
+  padding: 10px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 0 0 10px 10px; /* 下部のみ角丸 */
+}
+
+.photo-card:hover .photo-overlay {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);/* ホバー時にオーバーレイを表示 */
+}
+
+.photo-card img {
+  width: 100%;
+  object-fit: cover; /* 画像を枠内に綺麗に収める */
+  border-radius: 10px;
+}
+
+
+/* オーバーレイ内のテキスト */
+.photo-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
 }
 
 .title-header {
@@ -29,6 +93,24 @@ img {
   font-family: "Poppins", sans-serif;
   overflow: hidden;
 }
+.title-header::after {
+  content: ""; /* 擬似要素を表示 */
+  position: absolute; /* 親要素全体を覆う */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 背景色に黒の半透明を追加 */
+  background-image: rgba(255, 255, 255, 0.1); /* 編み掛けパターンを追加 */
+  /* background-size: 40px 40px; /* 編み掛けパターンのサイズを指定 */
+  z-index: 0; 背景として配置 */
+}
+
+.title-header h1,
+.title-header p {
+  z-index: 1; /* 背景オーバーレイよりも前に表示されるように設定 */
+  position: relative; /* z-index を有効にするために設定 */
+}
 
 .title-header h1 {
   z-index: 1;
@@ -45,11 +127,62 @@ img {
   text-decoration: underline;
 }
 
+/* Form全体 */
+.search-form {
+  display: flex; /* 子要素を横並びにする */
+  justify-content: center; /* 中央揃え */
+  align-items: center; /* 垂直方向も中央揃え */
+  gap: 10px; /* 入力フィールドとボタンの間に余白を設定 */
+  margin: 20px 0; /* 上下に余白を設定 */
+}
+.search-input {
+  width: 300px; /* 入力フィールドの横幅を固定 */
+  padding: 10px 15px; /* 内側の余白を設定 */
+  border: 1px solid #ccc; /* 薄いグレーの枠線を設定 */
+  border-radius: 25px; /* 角丸にする */
+  font-size: 16px; /* フォントサイズを設定 */
+  transition: all 0.3s ease; /* スタイル変更時のアニメーションを設定 */
+}
+
+.search-input:focus {
+  border-color: #3498db; /* フォーカス時に枠線を青色に変更 */
+  outline: none; /* デフォルトのフォーカス枠線を削除 */
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* 青色の外枠を追加 */
+}
+
+/* ボタン */
+.search-button {
+  padding: 10px 20px; /* ボタンの内側余白 */
+  border: none; /* 枠線を削除 */
+  border-radius: 25px; /* 角丸にする */
+  background-color: #3498db; /* ボタンの背景色（青） */
+  color: white; /* ボタン内の文字色 */
+  font-size: 16px; /* フォントサイズ */
+  cursor: pointer; /* ホバー時にポインターアイコンを表示 */
+  transition: background-color 0.3s ease; /* 背景色のアニメーション */
+}
+
+.search-button:hover {
+  background-color: #2980b9; /* ホバー時に背景色を濃くする */
+}
+
+.search-button:active {
+  background-color: #1c6a9e; /* クリック時にさらに濃くする */
+}
+
 @media (max-width: 768px) {
   .title-heading {
     font-size: 2rem;
   }
   .title-description {
     font-size: 1rem;
+  }
+  .search-input {
+    width: 100%; /* スマホ画面では入力フィールドを全幅に */
+  }
+
+  .search-form {
+    flex-direction: column; /* 子要素を縦並びにする */
+    gap: 15px; /* 上下の間隔を広くする */
   }
 }
