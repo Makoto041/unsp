@@ -1,0 +1,55 @@
+body {
+  text-align: center;
+}
+img {
+  width: 100%;
+}
+.App {
+  margin: 0;
+}
+.photo-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.title-header {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+.title-header h1 {
+  z-index: 1;
+  font-size: 3rem;
+}
+
+.title-header p {
+  z-index: 1;
+  font-size: 1.2rem;
+}
+
+.title-header a {
+  color: #ffd700;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .title-heading {
+    font-size: 2rem;
+  }
+  .title-description {
+    font-size: 1rem;
+  }
+}

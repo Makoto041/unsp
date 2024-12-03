@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Title from "./components/Title";
 import Form from "./components/Form";
@@ -13,7 +13,9 @@ function App() {
     e.preventDefault();
     axios
       .get(
-        `https://api.unsplash.com/search/photos?query=${word}&client_id=${import.meta.env.VITE_UNSPLASH_API_KEY}`
+        `https://api.unsplash.com/search/photos?query=${word}&client_id=${
+          import.meta.env.VITE_UNSPLASH_API_KEY
+        }`
       )
       .then((res) => {
         setPhoto(res.data.results); // ← 追加
