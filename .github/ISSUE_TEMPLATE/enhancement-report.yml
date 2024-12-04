@@ -1,0 +1,38 @@
+name: Enhancement Proposal
+description: Suggest an improvement to an existing feature or process
+title: "[ENHANCEMENT] "
+labels: ["enhancement"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Use this form to propose an enhancement to an existing feature.**
+
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: Briefly summarize the enhancement you are proposing.
+      placeholder: "Improve the performance of the search function."
+
+  - type: textarea
+    id: current-behavior
+    attributes:
+      label: Current Behavior
+      description: Describe how the feature currently behaves.
+      placeholder: "The search function currently takes 5 seconds to return results."
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: Explain your proposed solution and how it improves the feature.
+      placeholder: "Optimize the database queries to reduce search response time."
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context or screenshots that may help with the enhancement.
+      placeholder: "N/A"
